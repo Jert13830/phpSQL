@@ -11,9 +11,14 @@
     $errors = [];
 
      if (isset($_POST["email"])){
-       //  die("email found");
         if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/",htmlspecialchars($_POST["email"]))){
             $errors["email"] = "Please enter a valid email address";
+        }
+    }
+
+    if (isset($_POST["surname"])){
+        if (!preg_match("/^[A-Z][a-zA-Z' -]+$/",htmlspecialchars($_POST["surname"]))){
+            $errors["surname"] = "Please enter a valid surname";
         }
     }
 
@@ -126,11 +131,13 @@
                                 </td>
                                  <?php $adding = false;?> 
                             </form>
-                            <?php if(isset($errors["email"])) echo "<p>" . $errors["email"] . "</p>" ?>
+                            <?php if(isset($errors["email"])) echo "<p>" . $errors["email"] . "</p>";
+                                  if(isset($errors["surname"])) echo "<p>" . $errors["surname"] . "</p>"; ?>
                         <?php endif; ?> 
                     </tr>
             </table>
         </div>
+        
     </section>
 </body>
 </html>
