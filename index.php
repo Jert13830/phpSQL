@@ -95,19 +95,6 @@
                                 </td>
                                  <?php $modify = false;?> 
                             </form>
-                        <?php elseif ($adding) : ?>
-                            <form method="post">
-                                <td></td>
-                                <td><input type="text" name="surname" value="<?= htmlspecialchars($user['surname'])?>"></td>
-                                <td><input type="text" name="first_name" value="<?= htmlspecialchars($user['first_name'])?>"></td>
-                                <input type="email" id="email" name="email" required placeholder="Email address" value="<?php echo $modifying == true ? $user['email'] : ""; ?>" />
-                                <td><input type="text" name="post_code" value="<?= htmlspecialchars($user['post_code'])?>"></td>
-                                <td>
-                                    <button  id='btnUpdate' value="append,<?php echo $user['id'] ?>"] name='buttons'>Append</button>
-                                    <button  id='btnCancel' value="cancel,<?php echo $user['id'] ?>" name='buttons'>Cancel</button> 
-                                </td>
-                                 <?php $modify = false;?> 
-                            </form>
                         <?php else: ?>
                             <td><?php echo $user['id']?></td>
                             <td><?php echo $user['surname'] ?></td>
@@ -121,9 +108,27 @@
                                     <button  id='btnModify' value="modify,<?php echo $user['id'] ?>" name='buttons'>Modify</button>
                                 </form> 
                            </td>
-                        <?php endif; ?>  
+                        <?php endif; ?> 
+                        
                     </tr>
                 <?php endforeach; ?>
+                <?php if ($adding) : ?>
+                    <tr>
+                            <form method="post">
+                                <td>ID</td>
+                                <td><input type="text" id="surname" name="surname" required placeholder="Surname"/></td>
+                                <td><input type="text" id="firstname" name="first_name" required placeholder="First name"/></td>
+                                <td><input type="email" id="email" name="email" required placeholder="Email address"/></td>
+                                <td><input type="text" id="postcode" name="post_code" required placeholder="Post code"/></td>
+                                <td>
+                                    <button  id='btnUpdate' value="append,<?php echo $user['id'] ?>"] name='buttons'>Append</button>
+                                    <a href="index.php"><button type="button">Cancel</button></a>
+                                </td>
+                                 <?php $adding = false;?> 
+                            </form>
+                            <?php if(isset($errors["email"])) echo "<p>" . $errors["email"] . "</p>" ?>
+                        <?php endif; ?> 
+                    </tr>
             </table>
         </div>
     </section>

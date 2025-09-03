@@ -4,10 +4,10 @@
 
     $query->execute([
         ':surname' => $_POST['surname'],
-        ':first_name' => $_POST['firs_tname'],
+        ':first_name' => $_POST['first_name'],
         ':email' => $_POST['email'],
         ':post_code' => $_POST['post_code']
     ]);
 
-    Header("Location: ../index.php");
+    //Header("Location: ../index.php");
 ?>
