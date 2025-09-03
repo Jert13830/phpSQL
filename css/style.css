@@ -1,0 +1,66 @@
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;   
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th{
+    background-color: #000;
+    color:#fff;
+    padding : 10px;
+}
+
+td{
+    padding : 10px;
+}
+.userLine:nth-child(even){
+  background-color: lightcyan;
+}
+
+#userTable{
+    display:flex;
+    justify-content: center;
+}
+
+a.button {
+    border: 1px solid #808080;
+    background: #a0a0a0;
+    display: inline-block;
+    padding: 5px;
+}
+
+#formContent{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap : 10px;
+  height: auto;
+  
+}
+
+#btnSubmit{
+  align-self: center;
+}
+
+#names{
+  display:flex;
+  gap : 10px;
+}
+
+#userForm {
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#buttons{
+  display:flex;
+  justify-content: center;
+  gap : 20px;
+}
