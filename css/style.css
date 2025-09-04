@@ -64,3 +64,8 @@ a.button {
   justify-content: center;
   gap : 20px;
 }
+
+#errorRow {
+  background-color:#fdd; 
+  color:#900;
+}

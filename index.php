@@ -92,7 +92,7 @@
                                 </td>
                                 <td><input type="text" name="surname" value="<?= htmlspecialchars($user['surname'])?>"></td>
                                 <td><input type="text" name="first_name" value="<?= htmlspecialchars($user['first_name'])?>"></td>
-                                <td><input type="text" name="email" value="<?= htmlspecialchars($user['email']) ?>"></td>
+                                <td><input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>"></td>
                                 <td><input type="text" name="post_code" value="<?= htmlspecialchars($user['post_code'])?>"></td>
                                 <td>
                                     <button  id='btnUpdate' value="update,<?php echo $user['id'] ?>"] name='buttons'>Update</button>
@@ -131,13 +131,29 @@
                                 </td>
                                  <?php $adding = false;?> 
                             </form>
-                            <?php if(isset($errors["email"])) echo "<p>" . $errors["email"] . "</p>";
-                                  if(isset($errors["surname"])) echo "<p>" . $errors["surname"] . "</p>"; ?>
                         <?php endif; ?> 
                     </tr>
+                    <?php if (!empty($errors)): ?>
+                        <tr id="errorRow">
+                            <td colspan="2">
+                                <?php 
+                                    if (isset($errors["email"])) {
+                                        echo "<p>" . $errors["email"] . "</p>";
+                                    }
+                                    if (isset($errors["surname"])) {
+                                        echo "<p>" . $errors["surname"] . "</p>";
+                                    }
+                                    if (isset($errors["email_double"])) {
+                                        echo "<p>" . $errors["email_double"] . "</p>";
+                                    }
+                               ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
             </table>
         </div>
         
     </section>
+    <script src="./script/main.js"></script>
 </body>
 </html>

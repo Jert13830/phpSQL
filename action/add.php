@@ -1,14 +1,16 @@
 <?php
 
+//Check if the email address exists
 $check_email = $db->prepare("SELECT * FROM users WHERE email = :email");
 $check_email->execute([
     ':email' => $_POST['email']
 ]);
 
 if ($check_email->fetch(PDO::FETCH_ASSOC)) {
-    echo "Email exists";
+    $errors["email_double"] = "The email address already exists.";
 } else {
 
+    // the email address does not exist 
     $query = $db->prepare(" INSERT INTO users (surname, first_name, email, post_code) VALUES (:surname, :first_name, :email, :post_code)
     ");
 
