@@ -82,8 +82,7 @@
                             </form> 
                     </th>
                 </tr>
-                <?php foreach($users as $user) :     
-                    $_SESSION["user"] = $user ?>
+                <?php foreach($users as $user) :  ?>
                     <tr class="userLine">
                         <?php if ($modify && $userId == $user['id']) : ?>
                             <form method="post">
